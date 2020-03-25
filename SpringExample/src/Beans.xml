@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-init-method="init"
+       default-destroy-method="myDestroy">
 
-<!--    <bean id="helloWorld" class="com.tutorialspoint.HelloWorld" scope="singleton">-->
-<!--    </bean>-->
+    <!--    <bean id="helloWorld" class="com.tutorialspoint.HelloWorld" scope="singleton">-->
+    <!--    </bean>-->
 
-<!--     scope="singleton" is redundant as it is a default value / setting for a Bean-->
-    <bean id="helloWorld" class="com.tutorialspoint.HelloWorld">
+    <!--     scope="singleton" is redundant as it is a default value / setting for a Bean-->
+    <bean id="helloWorld" class="com.tutorialspoint.HelloWorld" init-method="init" destroy-method="myDestroy">
     </bean>
 
     <bean id="helloWorldPrototype" class="com.tutorialspoint.HelloWorld" scope="prototype">
+    </bean>
 
+    <bean id="byeWorld" class="com.tutorialspoint.ByeWorld">
     </bean>
 
 </beans>

@@ -1,11 +1,12 @@
 package com.tutorialspoint;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MainApp {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
         HelloWorld singletonA = (HelloWorld) context.getBean("helloWorld");
         singletonA.setMessage("This is SingletonA");
         System.out.println("=> singletonA.getMessage()");
@@ -24,7 +25,9 @@ public class MainApp {
         System.out.println("=> prototypeB.getMessage()");
         prototypeB.getMessage();
 
+        ByeWorld byeWorld = (ByeWorld) context.getBean("byeWorld");
 
+        context.registerShutdownHook();
 
     }
 }

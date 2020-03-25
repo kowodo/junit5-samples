@@ -10,4 +10,12 @@ public class HelloWorld {
     public void setMessage(String message) {
         this.message = message;
     }
+
+    public void init() {
+        System.out.println("init function in HelloWorld");
+    }
+
+    public void myDestroy() {
+        System.out.println("myDestroy function in HelloWorld");
+    }
 }
